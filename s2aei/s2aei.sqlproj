@@ -58,4 +58,13 @@
   <ItemGroup>
     <Folder Include="Properties" />
   </ItemGroup>
+  <ItemGroup>
+    <Build Include="AlunoMembro.sql" />
+    <Build Include="Projeto.sql" />
+    <Build Include="Participando.sql" />
+    <Build Include="Professor.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="s2aei.refactorlog" />
+  </ItemGroup>
 </Project>
