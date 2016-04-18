@@ -40,7 +40,7 @@ var
 	rootjQuery,
 
 	// Support: IE<10
-	// For `typeof xmlNode.method` instead of `xmlNode.method !== undefined`
+	// For [typeof xmlNode.method[ instead of [xmlNode.method !== undefined[
 	core_strundefined = typeof undefined,
 
 	// Use the correct document accordingly with window argument (sandbox)
@@ -1134,7 +1134,7 @@ var i,
 			"*(\\d+)|))" + whitespace + "*\\)|)", "i" ),
 		"bool": new RegExp( "^(?:" + booleans + ")$", "i" ),
 		// For use in libraries implementing .is()
-		// We use this for POS matching in `select`
+		// We use this for POS matching in [select[
 		"needsContext": new RegExp( "^" + whitespace + "*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\(" +
 			whitespace + "*((?:-\\d)?\\d*)" + whitespace + "*\\)|)(?=[^-]|$)", "i" )
 	},
@@ -1598,7 +1598,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 	// qSa(:focus) reports false when true (Chrome 21)
 	// We allow this because of a bug in IE8/9 that throws an error
-	// whenever `document.activeElement` is accessed on an iframe
+	// whenever [document.activeElement[ is accessed on an iframe
 	// So, we allow :focus to pass through QSA all the time to avoid the IE error
 	// See http://bugs.jquery.com/ticket/13378
 	rbuggyQSA = [];
@@ -2106,9 +2106,9 @@ Expr = Sizzle.selectors = {
 
 						start = [ forward ? parent.firstChild : parent.lastChild ];
 
-						// non-xml :nth-child(...) stores cache data on `parent`
+						// non-xml :nth-child(...) stores cache data on [parent[
 						if ( forward && useCache ) {
-							// Seek `elem` from a previously-cached index
+							// Seek [elem[ from a previously-cached index
 							outerCache = parent[ expando ] || (parent[ expando ] = {});
 							cache = outerCache[ type ] || [];
 							nodeIndex = cache[0] === dirruns && cache[1];
@@ -2117,10 +2117,10 @@ Expr = Sizzle.selectors = {
 
 							while ( (node = ++nodeIndex && node && node[ dir ] ||
 
-								// Fallback to seeking `elem` from the start
+								// Fallback to seeking [elem[ from the start
 								(diff = nodeIndex = 0) || start.pop()) ) {
 
-								// When found, cache indexes on `parent` and break
+								// When found, cache indexes on [parent[ and break
 								if ( node.nodeType === 1 && ++diff && node === elem ) {
 									outerCache[ type ] = [ dirruns, nodeIndex, diff ];
 									break;
@@ -2133,7 +2133,7 @@ Expr = Sizzle.selectors = {
 
 						// xml :nth-child(...) or :nth-last-child(...) or :nth(-last)?-of-type(...)
 						} else {
-							// Use the same loop as above to seek `elem` from the start
+							// Use the same loop as above to seek [elem[ from the start
 							while ( (node = ++nodeIndex && node && node[ dir ] ||
 								(diff = nodeIndex = 0) || start.pop()) ) {
 
@@ -2211,7 +2211,7 @@ Expr = Sizzle.selectors = {
 						unmatched = matcher( seed, null, xml, [] ),
 						i = seed.length;
 
-					// Match elements unmatched by `matcher`
+					// Match elements unmatched by [matcher[
 					while ( i-- ) {
 						if ( (elem = unmatched[i]) ) {
 							seed[i] = !(matches[i] = elem);
@@ -2703,7 +2703,7 @@ function matcherFromTokens( tokens ) {
 				return setMatcher(
 					i > 1 && elementMatcher( matchers ),
 					i > 1 && toSelector(
-						// If the preceding token was a descendant combinator, insert an implicit any-element `*`
+						// If the preceding token was a descendant combinator, insert an implicit any-element [*[
 						tokens.slice( 0, i - 1 ).concat({ value: tokens[ i - 2 ].type === " " ? "*" : "" })
 					).replace( rtrim, "$1" ),
 					matcher,
@@ -2743,7 +2743,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 			}
 
 			// Add elements passing elementMatchers directly to results
-			// Keep `i` a string if there are no elements so `matchedCount` will be "00" below
+			// Keep [i[ a string if there are no elements so [matchedCount[ will be "00" below
 			for ( ; (elem = elems[i]) != null; i++ ) {
 				if ( byElement && elem ) {
 					j = 0;
@@ -2909,7 +2909,7 @@ function select( selector, context, results, seed ) {
 	}
 
 	// Compile and execute a filtering function
-	// Provide `match` to avoid retokenization if we modified the selector above
+	// Provide [match[ to avoid retokenization if we modified the selector above
 	compile( selector, match )(
 		seed,
 		context,
@@ -3746,7 +3746,7 @@ function internalRemoveData( elem, name, pvt ) {
 	if ( isNode ) {
 		jQuery.cleanData( [ elem ], true );
 
-	// Use delete when supported for expandos or `cache` is not a window per isWindow (#10080)
+	// Use delete when supported for expandos or [cache[ is not a window per isWindow (#10080)
 	/* jshint eqeqeq: false */
 	} else if ( jQuery.support.deleteExpando || cache != cache.window ) {
 		/* jshint eqeqeq: true */

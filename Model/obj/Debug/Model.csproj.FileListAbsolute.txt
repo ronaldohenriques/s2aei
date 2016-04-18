@@ -8,3 +8,13 @@ C:\Users\ronaldo\Documents\Visual Studio 2013\Projects\s2aei\Model\bin\Debug\Ent
 C:\Users\ronaldo\Documents\Visual Studio 2013\Projects\s2aei\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 C:\Users\ronaldo\Documents\Visual Studio 2013\Projects\s2aei\Model\obj\Debug\Model.dll
 C:\Users\ronaldo\Documents\Visual Studio 2013\Projects\s2aei\Model\obj\Debug\Model.pdb
+D:\Dropbox\VisualStudio2013Projects\s2aei\Model\bin\Debug\Model.dll.config
+D:\Dropbox\VisualStudio2013Projects\s2aei\Model\bin\Debug\Model.dll
+D:\Dropbox\VisualStudio2013Projects\s2aei\Model\bin\Debug\Model.pdb
+D:\Dropbox\VisualStudio2013Projects\s2aei\Model\bin\Debug\EntityFramework.dll
+D:\Dropbox\VisualStudio2013Projects\s2aei\Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\Dropbox\VisualStudio2013Projects\s2aei\Model\bin\Debug\EntityFramework.xml
+D:\Dropbox\VisualStudio2013Projects\s2aei\Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\Dropbox\VisualStudio2013Projects\s2aei\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+D:\Dropbox\VisualStudio2013Projects\s2aei\Model\obj\Debug\Model.dll
+D:\Dropbox\VisualStudio2013Projects\s2aei\Model\obj\Debug\Model.pdb

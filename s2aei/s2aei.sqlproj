@@ -59,13 +59,12 @@
     <Folder Include="Properties" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="AlunoMembro.sql" />
-    <Build Include="Projeto.sql" />
-    <Build Include="Participando.sql" />
-    <Build Include="Professor.sql" />
-    <Build Include="AlunoLider.sql" />
+    <RefactorLog Include="s2aei.refactorlog" />
   </ItemGroup>
   <ItemGroup>
-    <RefactorLog Include="s2aei.refactorlog" />
+    <Build Include="AlunoMembo.sql" />
+    <Build Include="Professor.sql" />
+    <Build Include="Projeto.sql" />
+    <Build Include="Avaliador.sql" />
   </ItemGroup>
 </Project>

@@ -1,8 +1,8 @@
 ﻿CREATE TABLE [dbo].[Projeto]
 (
-	[idProjeto] UNIQUEIDENTIFIER IDENTITY,
-	[idAlunoLider] UNIQUEIDENTIFIER NOT NULL, 
-    CONSTRAINT [FK_Projeto_AlunoMembro] FOREIGN KEY (idAlunoLider) REFERENCES Participando ([idAluno]), 
-    CONSTRAINT [PK_Projeto] PRIMARY KEY ([IdProjeto])
-
+	[IdProjeto] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
+    [nome] VARCHAR(50) NOT NULL, 
+    [idAlunoLider] VARCHAR(50) NOT NULL, 
+    [idOrientador] VARCHAR(50) NOT NULL, 
+    [ativo] TINYINT NOT NULL
 )
