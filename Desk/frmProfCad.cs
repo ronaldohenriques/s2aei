@@ -16,5 +16,10 @@ namespace Desk
         {
             InitializeComponent();
         }
+
+        private void btnCancela_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
