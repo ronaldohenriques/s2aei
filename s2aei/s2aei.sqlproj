@@ -66,5 +66,7 @@
     <Build Include="Professor.sql" />
     <Build Include="Projeto.sql" />
     <Build Include="Avaliador.sql" />
+    <Build Include="Participando.sql" />
+    <Build Include="Administracao.sql" />
   </ItemGroup>
 </Project>

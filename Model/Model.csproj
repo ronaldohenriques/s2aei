@@ -41,6 +41,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,11 +51,67 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="DAO\Administracao.cs">
+      <DependentUpon>s2aeiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAO\AlunoMembo.cs">
+      <DependentUpon>s2aeiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAO\Avaliador.cs">
+      <DependentUpon>s2aeiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAO\Participando.cs">
+      <DependentUpon>s2aeiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAO\Professor.cs">
+      <DependentUpon>s2aeiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAO\Projeto.cs">
+      <DependentUpon>s2aeiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAO\s2aeiModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>s2aeiModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAO\s2aeiModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>s2aeiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAO\s2aeiModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>s2aeiModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <EntityDeploy Include="DAO\s2aeiModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>s2aeiModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DAO\s2aeiModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>s2aeiModel.edmx</DependentUpon>
+      <LastGenOutput>s2aeiModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="DAO\s2aeiModel.edmx.diagram">
+      <DependentUpon>s2aeiModel.edmx</DependentUpon>
+    </None>
+    <None Include="DAO\s2aeiModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>s2aeiModel.edmx</DependentUpon>
+      <LastGenOutput>s2aeiModel.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PN\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

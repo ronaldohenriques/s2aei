@@ -4,5 +4,5 @@
     [nome] VARCHAR(50) NOT NULL, 
     [idAlunoLider] VARCHAR(50) NOT NULL, 
     [idOrientador] VARCHAR(50) NOT NULL, 
-    [ativo] TINYINT NOT NULL
+    [situacao] TINYINT NOT NULL
 )

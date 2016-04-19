@@ -10,11 +10,22 @@ using System.Windows.Forms;
 
 namespace Desk
 {
-    public partial class Form1 : Form
+    public partial class frmLoginProf : Form
     {
-        public Form1()
+        public frmLoginProf()
         {
             InitializeComponent();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void lbllink1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmProfCad frm = new frmProfCad();
+            frm.Show();
         }
     }
 }
