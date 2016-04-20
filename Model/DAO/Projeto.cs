@@ -17,16 +17,29 @@ namespace Model.DAO
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Projeto()
         {
-            this.Participandoes = new HashSet<Participando>();
+            this.ComentAlunoes = new HashSet<ComentAluno>();
+            this.ComentProfessors = new HashSet<ComentProfessor>();
+            this.Respostas = new HashSet<Resposta>();
+            this.Alunoes = new HashSet<Aluno>();
+            this.Professors = new HashSet<Professor>();
         }
     
         public System.Guid IdProjeto { get; set; }
         public string nome { get; set; }
         public string idAlunoLider { get; set; }
-        public string idOrientador { get; set; }
+        public System.Guid IdAvaliador { get; set; }
         public byte situacao { get; set; }
     
+        public virtual Avaliador Avaliador { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Participando> Participandoes { get; set; }
+        public virtual ICollection<ComentAluno> ComentAlunoes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ComentProfessor> ComentProfessors { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Resposta> Respostas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Aluno> Alunoes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Professor> Professors { get; set; }
     }
 }

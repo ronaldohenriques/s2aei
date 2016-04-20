@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="s2aeiDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Administracao">
+    <Key>
+      <PropertyRef Name="IdAdministracao" />
+    </Key>
+    <Property Name="IdAdministracao" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="login" Type="varchar" MaxLength="50" />
+    <Property Name="senha" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="AlunoMembo">
+    <Key>
+      <PropertyRef Name="IdAlunoMembo" />
+    </Key>
+    <Property Name="IdAlunoMembo" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="emaila" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="senha" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="curso" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="periodo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="campus" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="situacao" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Avaliador">
+    <Key>
+      <PropertyRef Name="IdAvaliador" />
+    </Key>
+    <Property Name="IdAvaliador" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="emailAval" Type="varchar" MaxLength="50" />
+    <Property Name="nome" Type="varchar" MaxLength="50" />
+    <Property Name="senha" Type="varchar" MaxLength="10" />
+    <Property Name="areaAtuacao" Type="varchar" MaxLength="50" />
+    <Property Name="formacao" Type="varchar" MaxLength="50" />
+    <Property Name="situacao" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="Participando">
+    <Key>
+      <PropertyRef Name="Professor_idProfessor" />
+      <PropertyRef Name="AlunoMembo_idAlunoMembo" />
+      <PropertyRef Name="Projeto_idProjeto" />
+      <PropertyRef Name="Avaliador_idAvaliador" />
+    </Key>
+    <Property Name="Professor_idProfessor" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AlunoMembo_idAlunoMembo" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Projeto_idProjeto" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Avaliador_idAvaliador" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Professor">
+    <Key>
+      <PropertyRef Name="IdProfessor" />
+    </Key>
+    <Property Name="IdProfessor" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="emailp" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="senha" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="disciplinaP" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="departamento" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="situacao" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Projeto">
+    <Key>
+      <PropertyRef Name="IdProjeto" />
+    </Key>
+    <Property Name="IdProjeto" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idAlunoLider" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idOrientador" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="situacao" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Participando_AlunoMembro">
+    <End Role="AlunoMembo" Type="Self.AlunoMembo" Multiplicity="1" />
+    <End Role="Participando" Type="Self.Participando" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AlunoMembo">
+        <PropertyRef Name="IdAlunoMembo" />
+      </Principal>
+      <Dependent Role="Participando">
+        <PropertyRef Name="AlunoMembo_idAlunoMembo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Participando_Avaliador">
+    <End Role="Avaliador" Type="Self.Avaliador" Multiplicity="1" />
+    <End Role="Participando" Type="Self.Participando" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Avaliador">
+        <PropertyRef Name="IdAvaliador" />
+      </Principal>
+      <Dependent Role="Participando">
+        <PropertyRef Name="Avaliador_idAvaliador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Participando_Professor">
+    <End Role="Professor" Type="Self.Professor" Multiplicity="1" />
+    <End Role="Participando" Type="Self.Participando" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Professor">
+        <PropertyRef Name="IdProfessor" />
+      </Principal>
+      <Dependent Role="Participando">
+        <PropertyRef Name="Professor_idProfessor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Participando_Projeto">
+    <End Role="Projeto" Type="Self.Projeto" Multiplicity="1" />
+    <End Role="Participando" Type="Self.Participando" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projeto">
+        <PropertyRef Name="IdProjeto" />
+      </Principal>
+      <Dependent Role="Participando">
+        <PropertyRef Name="Projeto_idProjeto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="s2aeiDBModelStoreContainer">
+    <EntitySet Name="Administracao" EntityType="Self.Administracao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AlunoMembo" EntityType="Self.AlunoMembo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Avaliador" EntityType="Self.Avaliador" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Participando" EntityType="Self.Participando" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Professor" EntityType="Self.Professor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Projeto" EntityType="Self.Projeto" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Participando_AlunoMembro" Association="Self.FK_Participando_AlunoMembro">
+      <End Role="AlunoMembo" EntitySet="AlunoMembo" />
+      <End Role="Participando" EntitySet="Participando" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Participando_Avaliador" Association="Self.FK_Participando_Avaliador">
+      <End Role="Avaliador" EntitySet="Avaliador" />
+      <End Role="Participando" EntitySet="Participando" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Participando_Professor" Association="Self.FK_Participando_Professor">
+      <End Role="Professor" EntitySet="Professor" />
+      <End Role="Participando" EntitySet="Participando" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Participando_Projeto" Association="Self.FK_Participando_Projeto">
+      <End Role="Projeto" EntitySet="Projeto" />
+      <End Role="Participando" EntitySet="Participando" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

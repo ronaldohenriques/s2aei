@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\Dropbox\VisualStudio2013Projects\s2aei\Model\DAO\s2aeiModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\ronaldo\Documents\Visual Studio 2013\Projects\s2aei\Model\DAO\s2aeiDER.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

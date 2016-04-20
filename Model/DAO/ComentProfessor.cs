@@ -12,15 +12,13 @@ namespace Model.DAO
     using System;
     using System.Collections.Generic;
     
-    public partial class Participando
+    public partial class ComentProfessor
     {
-        public System.Guid Professor_idProfessor { get; set; }
-        public System.Guid AlunoMembo_idAlunoMembo { get; set; }
-        public System.Guid Projeto_idProjeto { get; set; }
-        public System.Guid Avaliador_idAvaliador { get; set; }
+        public System.Guid IdComentProf { get; set; }
+        public System.Guid IdProjeto { get; set; }
+        public string IdBloco { get; set; }
+        public string IdResposta { get; set; }
     
-        public virtual AlunoMembo AlunoMembo { get; set; }
-        public virtual Avaliador Avaliador { get; set; }
         public virtual Professor Professor { get; set; }
         public virtual Projeto Projeto { get; set; }
     }

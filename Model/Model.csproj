@@ -52,58 +52,64 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="DAO\Administracao.cs">
-      <DependentUpon>s2aeiModel.tt</DependentUpon>
+      <DependentUpon>s2aeiDER.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAO\AlunoMembo.cs">
-      <DependentUpon>s2aeiModel.tt</DependentUpon>
+    <Compile Include="DAO\Aluno.cs">
+      <DependentUpon>s2aeiDER.tt</DependentUpon>
     </Compile>
     <Compile Include="DAO\Avaliador.cs">
-      <DependentUpon>s2aeiModel.tt</DependentUpon>
+      <DependentUpon>s2aeiDER.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAO\Participando.cs">
-      <DependentUpon>s2aeiModel.tt</DependentUpon>
+    <Compile Include="DAO\ComentAluno.cs">
+      <DependentUpon>s2aeiDER.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAO\ComentProfessor.cs">
+      <DependentUpon>s2aeiDER.tt</DependentUpon>
     </Compile>
     <Compile Include="DAO\Professor.cs">
-      <DependentUpon>s2aeiModel.tt</DependentUpon>
+      <DependentUpon>s2aeiDER.tt</DependentUpon>
     </Compile>
     <Compile Include="DAO\Projeto.cs">
-      <DependentUpon>s2aeiModel.tt</DependentUpon>
+      <DependentUpon>s2aeiDER.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAO\s2aeiModel.Context.cs">
+    <Compile Include="DAO\Resposta.cs">
+      <DependentUpon>s2aeiDER.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAO\s2aeiDER.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>s2aeiModel.Context.tt</DependentUpon>
+      <DependentUpon>s2aeiDER.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAO\s2aeiModel.cs">
+    <Compile Include="DAO\s2aeiDER.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>s2aeiModel.tt</DependentUpon>
+      <DependentUpon>s2aeiDER.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAO\s2aeiModel.Designer.cs">
+    <Compile Include="DAO\s2aeiDER.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>s2aeiModel.edmx</DependentUpon>
+      <DependentUpon>s2aeiDER.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="DAO\s2aeiModel.edmx">
+    <EntityDeploy Include="DAO\s2aeiDER.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>s2aeiModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>s2aeiDER.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DAO\s2aeiModel.Context.tt">
+    <None Include="DAO\s2aeiDER.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>s2aeiModel.edmx</DependentUpon>
-      <LastGenOutput>s2aeiModel.Context.cs</LastGenOutput>
+      <DependentUpon>s2aeiDER.edmx</DependentUpon>
+      <LastGenOutput>s2aeiDER.Context.cs</LastGenOutput>
     </None>
-    <None Include="DAO\s2aeiModel.edmx.diagram">
-      <DependentUpon>s2aeiModel.edmx</DependentUpon>
+    <None Include="DAO\s2aeiDER.edmx.diagram">
+      <DependentUpon>s2aeiDER.edmx</DependentUpon>
     </None>
-    <None Include="DAO\s2aeiModel.tt">
+    <None Include="DAO\s2aeiDER.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>s2aeiModel.edmx</DependentUpon>
-      <LastGenOutput>s2aeiModel.cs</LastGenOutput>
+      <DependentUpon>s2aeiDER.edmx</DependentUpon>
+      <LastGenOutput>s2aeiDER.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>

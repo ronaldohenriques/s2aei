@@ -17,7 +17,8 @@ namespace Model.DAO
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Professor()
         {
-            this.Participandoes = new HashSet<Participando>();
+            this.ComentProfessors = new HashSet<ComentProfessor>();
+            this.Projetoes = new HashSet<Projeto>();
         }
     
         public System.Guid IdProfessor { get; set; }
@@ -29,6 +30,8 @@ namespace Model.DAO
         public byte situacao { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Participando> Participandoes { get; set; }
+        public virtual ICollection<ComentProfessor> ComentProfessors { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Projeto> Projetoes { get; set; }
     }
 }

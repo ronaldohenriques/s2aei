@@ -53,17 +53,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="frmProfLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmProfLog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmProfLog.Designer.cs">
-      <DependentUpon>frmProfLog.cs</DependentUpon>
+    <Compile Include="frmProfLogin.Designer.cs">
+      <DependentUpon>frmProfLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="frmProfCad.cs">
       <SubType>Form</SubType>
@@ -73,11 +67,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmProfLog.resx">
-      <DependentUpon>frmProfLog.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmProfCad.resx">
       <DependentUpon>frmProfCad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProfLogin.resx">
+      <DependentUpon>frmProfLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

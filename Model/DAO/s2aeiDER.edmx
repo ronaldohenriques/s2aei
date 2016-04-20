@@ -1,0 +1,642 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="s2aeiDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Administracao">
+          <Key>
+            <PropertyRef Name="IdAdministracao" />
+          </Key>
+          <Property Name="IdAdministracao" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="login" Type="varchar" MaxLength="50" />
+          <Property Name="senha" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Aluno">
+          <Key>
+            <PropertyRef Name="IdAluno" />
+          </Key>
+          <Property Name="IdAluno" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="emaila" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="senha" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="curso" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="periodo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="campus" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="situacao" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Avaliador">
+          <Key>
+            <PropertyRef Name="IdAvaliador" />
+          </Key>
+          <Property Name="IdAvaliador" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="emailAval" Type="varchar" MaxLength="50" />
+          <Property Name="nome" Type="varchar" MaxLength="50" />
+          <Property Name="senha" Type="varchar" MaxLength="10" />
+          <Property Name="areaAtuacao" Type="varchar" MaxLength="50" />
+          <Property Name="formacao" Type="varchar" MaxLength="50" />
+          <Property Name="situacao" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="ComentAluno">
+          <Key>
+            <PropertyRef Name="IdComentAluno" />
+            <PropertyRef Name="IdProjeto" />
+          </Key>
+          <Property Name="IdComentAluno" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdProjeto" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdBloco" Type="nchar" MaxLength="10" />
+          <Property Name="IdResposta" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="ComentProfessor">
+          <Key>
+            <PropertyRef Name="IdComentProf" />
+            <PropertyRef Name="IdProjeto" />
+          </Key>
+          <Property Name="IdComentProf" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdProjeto" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdBloco" Type="nchar" MaxLength="10" />
+          <Property Name="IdResposta" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Professor">
+          <Key>
+            <PropertyRef Name="IdProfessor" />
+          </Key>
+          <Property Name="IdProfessor" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="emailp" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="senha" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="disciplinaP" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="departamento" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="situacao" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Projeto">
+          <Key>
+            <PropertyRef Name="IdProjeto" />
+          </Key>
+          <Property Name="IdProjeto" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idAlunoLider" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdAvaliador" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="situacao" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProjetoAluno">
+          <Key>
+            <PropertyRef Name="IdProjeto" />
+            <PropertyRef Name="IdAluno" />
+          </Key>
+          <Property Name="IdProjeto" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdAluno" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProjetoProfessor">
+          <Key>
+            <PropertyRef Name="IdProjeto" />
+            <PropertyRef Name="IdProfessor" />
+          </Key>
+          <Property Name="IdProjeto" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdProfessor" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Resposta">
+          <Key>
+            <PropertyRef Name="IdResposta" />
+          </Key>
+          <Property Name="IdResposta" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdProjeto" Type="uniqueidentifier" />
+          <Property Name="IdBloco" Type="tinyint" />
+          <Property Name="Resposta" Type="text" />
+        </EntityType>
+        <Association Name="FK_ComentAluno_Alunor">
+          <End Role="Aluno" Type="Self.Aluno" Multiplicity="1" />
+          <End Role="ComentAluno" Type="Self.ComentAluno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aluno">
+              <PropertyRef Name="IdAluno" />
+            </Principal>
+            <Dependent Role="ComentAluno">
+              <PropertyRef Name="IdComentAluno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ComentAluno_Projeto">
+          <End Role="Projeto" Type="Self.Projeto" Multiplicity="1" />
+          <End Role="ComentAluno" Type="Self.ComentAluno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projeto">
+              <PropertyRef Name="IdProjeto" />
+            </Principal>
+            <Dependent Role="ComentAluno">
+              <PropertyRef Name="IdProjeto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ComentProfessor_Professor">
+          <End Role="Professor" Type="Self.Professor" Multiplicity="1" />
+          <End Role="ComentProfessor" Type="Self.ComentProfessor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Professor">
+              <PropertyRef Name="IdProfessor" />
+            </Principal>
+            <Dependent Role="ComentProfessor">
+              <PropertyRef Name="IdComentProf" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ComentProfessor_Projeto">
+          <End Role="Projeto" Type="Self.Projeto" Multiplicity="1" />
+          <End Role="ComentProfessor" Type="Self.ComentProfessor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projeto">
+              <PropertyRef Name="IdProjeto" />
+            </Principal>
+            <Dependent Role="ComentProfessor">
+              <PropertyRef Name="IdProjeto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projeto_Avaliador">
+          <End Role="Avaliador" Type="Self.Avaliador" Multiplicity="1" />
+          <End Role="Projeto" Type="Self.Projeto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Avaliador">
+              <PropertyRef Name="IdAvaliador" />
+            </Principal>
+            <Dependent Role="Projeto">
+              <PropertyRef Name="IdAvaliador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjetoAluno_Aluno">
+          <End Role="Aluno" Type="Self.Aluno" Multiplicity="1" />
+          <End Role="ProjetoAluno" Type="Self.ProjetoAluno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aluno">
+              <PropertyRef Name="IdAluno" />
+            </Principal>
+            <Dependent Role="ProjetoAluno">
+              <PropertyRef Name="IdAluno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjetoAluno_Projeto">
+          <End Role="Projeto" Type="Self.Projeto" Multiplicity="1" />
+          <End Role="ProjetoAluno" Type="Self.ProjetoAluno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projeto">
+              <PropertyRef Name="IdProjeto" />
+            </Principal>
+            <Dependent Role="ProjetoAluno">
+              <PropertyRef Name="IdProjeto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjetoProfessor_Professor">
+          <End Role="Professor" Type="Self.Professor" Multiplicity="1" />
+          <End Role="ProjetoProfessor" Type="Self.ProjetoProfessor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Professor">
+              <PropertyRef Name="IdProfessor" />
+            </Principal>
+            <Dependent Role="ProjetoProfessor">
+              <PropertyRef Name="IdProfessor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjetoProfessor_Projeto">
+          <End Role="Projeto" Type="Self.Projeto" Multiplicity="1" />
+          <End Role="ProjetoProfessor" Type="Self.ProjetoProfessor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projeto">
+              <PropertyRef Name="IdProjeto" />
+            </Principal>
+            <Dependent Role="ProjetoProfessor">
+              <PropertyRef Name="IdProjeto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Resposta_Projeto">
+          <End Role="Projeto" Type="Self.Projeto" Multiplicity="0..1" />
+          <End Role="Resposta" Type="Self.Resposta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projeto">
+              <PropertyRef Name="IdProjeto" />
+            </Principal>
+            <Dependent Role="Resposta">
+              <PropertyRef Name="IdProjeto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="s2aeiDBModelStoreContainer">
+          <EntitySet Name="Administracao" EntityType="Self.Administracao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Aluno" EntityType="Self.Aluno" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Avaliador" EntityType="Self.Avaliador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ComentAluno" EntityType="Self.ComentAluno" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ComentProfessor" EntityType="Self.ComentProfessor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Professor" EntityType="Self.Professor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Projeto" EntityType="Self.Projeto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjetoAluno" EntityType="Self.ProjetoAluno" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjetoProfessor" EntityType="Self.ProjetoProfessor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Resposta" EntityType="Self.Resposta" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ComentAluno_Alunor" Association="Self.FK_ComentAluno_Alunor">
+            <End Role="Aluno" EntitySet="Aluno" />
+            <End Role="ComentAluno" EntitySet="ComentAluno" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ComentAluno_Projeto" Association="Self.FK_ComentAluno_Projeto">
+            <End Role="Projeto" EntitySet="Projeto" />
+            <End Role="ComentAluno" EntitySet="ComentAluno" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ComentProfessor_Professor" Association="Self.FK_ComentProfessor_Professor">
+            <End Role="Professor" EntitySet="Professor" />
+            <End Role="ComentProfessor" EntitySet="ComentProfessor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ComentProfessor_Projeto" Association="Self.FK_ComentProfessor_Projeto">
+            <End Role="Projeto" EntitySet="Projeto" />
+            <End Role="ComentProfessor" EntitySet="ComentProfessor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projeto_Avaliador" Association="Self.FK_Projeto_Avaliador">
+            <End Role="Avaliador" EntitySet="Avaliador" />
+            <End Role="Projeto" EntitySet="Projeto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjetoAluno_Aluno" Association="Self.FK_ProjetoAluno_Aluno">
+            <End Role="Aluno" EntitySet="Aluno" />
+            <End Role="ProjetoAluno" EntitySet="ProjetoAluno" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjetoAluno_Projeto" Association="Self.FK_ProjetoAluno_Projeto">
+            <End Role="Projeto" EntitySet="Projeto" />
+            <End Role="ProjetoAluno" EntitySet="ProjetoAluno" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjetoProfessor_Professor" Association="Self.FK_ProjetoProfessor_Professor">
+            <End Role="Professor" EntitySet="Professor" />
+            <End Role="ProjetoProfessor" EntitySet="ProjetoProfessor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjetoProfessor_Projeto" Association="Self.FK_ProjetoProfessor_Projeto">
+            <End Role="Projeto" EntitySet="Projeto" />
+            <End Role="ProjetoProfessor" EntitySet="ProjetoProfessor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Resposta_Projeto" Association="Self.FK_Resposta_Projeto">
+            <End Role="Projeto" EntitySet="Projeto" />
+            <End Role="Resposta" EntitySet="Resposta" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="s2aeiDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Administracao">
+          <Key>
+            <PropertyRef Name="IdAdministracao" />
+          </Key>
+          <Property Name="IdAdministracao" Type="Guid" Nullable="false" />
+          <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="senha" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Aluno">
+          <Key>
+            <PropertyRef Name="IdAluno" />
+          </Key>
+          <Property Name="IdAluno" Type="Guid" Nullable="false" />
+          <Property Name="emaila" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="senha" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="curso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="periodo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="campus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="situacao" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="ComentAlunoes" Relationship="Self.FK_ComentAluno_Alunor" FromRole="Aluno" ToRole="ComentAluno" />
+          <NavigationProperty Name="Projetoes" Relationship="Self.ProjetoAluno" FromRole="Aluno" ToRole="Projeto" />
+        </EntityType>
+        <EntityType Name="Avaliador">
+          <Key>
+            <PropertyRef Name="IdAvaliador" />
+          </Key>
+          <Property Name="IdAvaliador" Type="Guid" Nullable="false" />
+          <Property Name="emailAval" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="senha" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="areaAtuacao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="formacao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="situacao" Type="Byte" />
+          <NavigationProperty Name="Projetoes" Relationship="Self.FK_Projeto_Avaliador" FromRole="Avaliador" ToRole="Projeto" />
+        </EntityType>
+        <EntityType Name="ComentAluno">
+          <Key>
+            <PropertyRef Name="IdComentAluno" />
+            <PropertyRef Name="IdProjeto" />
+          </Key>
+          <Property Name="IdComentAluno" Type="Guid" Nullable="false" />
+          <Property Name="IdProjeto" Type="Guid" Nullable="false" />
+          <Property Name="IdBloco" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="IdResposta" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Aluno" Relationship="Self.FK_ComentAluno_Alunor" FromRole="ComentAluno" ToRole="Aluno" />
+          <NavigationProperty Name="Projeto" Relationship="Self.FK_ComentAluno_Projeto" FromRole="ComentAluno" ToRole="Projeto" />
+        </EntityType>
+        <EntityType Name="ComentProfessor">
+          <Key>
+            <PropertyRef Name="IdComentProf" />
+            <PropertyRef Name="IdProjeto" />
+          </Key>
+          <Property Name="IdComentProf" Type="Guid" Nullable="false" />
+          <Property Name="IdProjeto" Type="Guid" Nullable="false" />
+          <Property Name="IdBloco" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="IdResposta" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Professor" Relationship="Self.FK_ComentProfessor_Professor" FromRole="ComentProfessor" ToRole="Professor" />
+          <NavigationProperty Name="Projeto" Relationship="Self.FK_ComentProfessor_Projeto" FromRole="ComentProfessor" ToRole="Projeto" />
+        </EntityType>
+        <EntityType Name="Professor">
+          <Key>
+            <PropertyRef Name="IdProfessor" />
+          </Key>
+          <Property Name="IdProfessor" Type="Guid" Nullable="false" />
+          <Property Name="emailp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="senha" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="disciplinaP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="departamento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="situacao" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="ComentProfessors" Relationship="Self.FK_ComentProfessor_Professor" FromRole="Professor" ToRole="ComentProfessor" />
+          <NavigationProperty Name="Projetoes" Relationship="Self.ProjetoProfessor" FromRole="Professor" ToRole="Projeto" />
+        </EntityType>
+        <EntityType Name="Projeto">
+          <Key>
+            <PropertyRef Name="IdProjeto" />
+          </Key>
+          <Property Name="IdProjeto" Type="Guid" Nullable="false" />
+          <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idAlunoLider" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdAvaliador" Type="Guid" Nullable="false" />
+          <Property Name="situacao" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="Avaliador" Relationship="Self.FK_Projeto_Avaliador" FromRole="Projeto" ToRole="Avaliador" />
+          <NavigationProperty Name="ComentAlunoes" Relationship="Self.FK_ComentAluno_Projeto" FromRole="Projeto" ToRole="ComentAluno" />
+          <NavigationProperty Name="ComentProfessors" Relationship="Self.FK_ComentProfessor_Projeto" FromRole="Projeto" ToRole="ComentProfessor" />
+          <NavigationProperty Name="Respostas" Relationship="Self.FK_Resposta_Projeto" FromRole="Projeto" ToRole="Resposta" />
+          <NavigationProperty Name="Alunoes" Relationship="Self.ProjetoAluno" FromRole="Projeto" ToRole="Aluno" />
+          <NavigationProperty Name="Professors" Relationship="Self.ProjetoProfessor" FromRole="Projeto" ToRole="Professor" />
+        </EntityType>
+        <EntityType Name="Resposta">
+          <Key>
+            <PropertyRef Name="IdResposta" />
+          </Key>
+          <Property Name="IdResposta" Type="Guid" Nullable="false" />
+          <Property Name="IdProjeto" Type="Guid" />
+          <Property Name="IdBloco" Type="Byte" />
+          <Property Name="Resposta1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Projeto" Relationship="Self.FK_Resposta_Projeto" FromRole="Resposta" ToRole="Projeto" />
+        </EntityType>
+        <Association Name="FK_ComentAluno_Alunor">
+          <End Role="Aluno" Type="Self.Aluno" Multiplicity="1" />
+          <End Role="ComentAluno" Type="Self.ComentAluno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aluno">
+              <PropertyRef Name="IdAluno" />
+            </Principal>
+            <Dependent Role="ComentAluno">
+              <PropertyRef Name="IdComentAluno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projeto_Avaliador">
+          <End Role="Avaliador" Type="Self.Avaliador" Multiplicity="1" />
+          <End Role="Projeto" Type="Self.Projeto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Avaliador">
+              <PropertyRef Name="IdAvaliador" />
+            </Principal>
+            <Dependent Role="Projeto">
+              <PropertyRef Name="IdAvaliador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ComentAluno_Projeto">
+          <End Role="Projeto" Type="Self.Projeto" Multiplicity="1" />
+          <End Role="ComentAluno" Type="Self.ComentAluno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projeto">
+              <PropertyRef Name="IdProjeto" />
+            </Principal>
+            <Dependent Role="ComentAluno">
+              <PropertyRef Name="IdProjeto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ComentProfessor_Professor">
+          <End Role="Professor" Type="Self.Professor" Multiplicity="1" />
+          <End Role="ComentProfessor" Type="Self.ComentProfessor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Professor">
+              <PropertyRef Name="IdProfessor" />
+            </Principal>
+            <Dependent Role="ComentProfessor">
+              <PropertyRef Name="IdComentProf" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ComentProfessor_Projeto">
+          <End Role="Projeto" Type="Self.Projeto" Multiplicity="1" />
+          <End Role="ComentProfessor" Type="Self.ComentProfessor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projeto">
+              <PropertyRef Name="IdProjeto" />
+            </Principal>
+            <Dependent Role="ComentProfessor">
+              <PropertyRef Name="IdProjeto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Resposta_Projeto">
+          <End Role="Projeto" Type="Self.Projeto" Multiplicity="0..1" />
+          <End Role="Resposta" Type="Self.Resposta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projeto">
+              <PropertyRef Name="IdProjeto" />
+            </Principal>
+            <Dependent Role="Resposta">
+              <PropertyRef Name="IdProjeto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProjetoAluno">
+          <End Role="Aluno" Type="Self.Aluno" Multiplicity="*" />
+          <End Role="Projeto" Type="Self.Projeto" Multiplicity="*" />
+        </Association>
+        <Association Name="ProjetoProfessor">
+          <End Role="Professor" Type="Self.Professor" Multiplicity="*" />
+          <End Role="Projeto" Type="Self.Projeto" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="s2aeiDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Administracaos" EntityType="Self.Administracao" />
+          <EntitySet Name="Alunoes" EntityType="Self.Aluno" />
+          <EntitySet Name="Avaliadors" EntityType="Self.Avaliador" />
+          <EntitySet Name="ComentAlunoes" EntityType="Self.ComentAluno" />
+          <EntitySet Name="ComentProfessors" EntityType="Self.ComentProfessor" />
+          <EntitySet Name="Professors" EntityType="Self.Professor" />
+          <EntitySet Name="Projetoes" EntityType="Self.Projeto" />
+          <EntitySet Name="Respostas" EntityType="Self.Resposta" />
+          <AssociationSet Name="FK_ComentAluno_Alunor" Association="Self.FK_ComentAluno_Alunor">
+            <End Role="Aluno" EntitySet="Alunoes" />
+            <End Role="ComentAluno" EntitySet="ComentAlunoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projeto_Avaliador" Association="Self.FK_Projeto_Avaliador">
+            <End Role="Avaliador" EntitySet="Avaliadors" />
+            <End Role="Projeto" EntitySet="Projetoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ComentAluno_Projeto" Association="Self.FK_ComentAluno_Projeto">
+            <End Role="Projeto" EntitySet="Projetoes" />
+            <End Role="ComentAluno" EntitySet="ComentAlunoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ComentProfessor_Professor" Association="Self.FK_ComentProfessor_Professor">
+            <End Role="Professor" EntitySet="Professors" />
+            <End Role="ComentProfessor" EntitySet="ComentProfessors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ComentProfessor_Projeto" Association="Self.FK_ComentProfessor_Projeto">
+            <End Role="Projeto" EntitySet="Projetoes" />
+            <End Role="ComentProfessor" EntitySet="ComentProfessors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Resposta_Projeto" Association="Self.FK_Resposta_Projeto">
+            <End Role="Projeto" EntitySet="Projetoes" />
+            <End Role="Resposta" EntitySet="Respostas" />
+          </AssociationSet>
+          <AssociationSet Name="ProjetoAluno" Association="Self.ProjetoAluno">
+            <End Role="Aluno" EntitySet="Alunoes" />
+            <End Role="Projeto" EntitySet="Projetoes" />
+          </AssociationSet>
+          <AssociationSet Name="ProjetoProfessor" Association="Self.ProjetoProfessor">
+            <End Role="Professor" EntitySet="Professors" />
+            <End Role="Projeto" EntitySet="Projetoes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="s2aeiDBModelStoreContainer" CdmEntityContainer="s2aeiDBEntities">
+          <EntitySetMapping Name="Administracaos">
+            <EntityTypeMapping TypeName="s2aeiDBModel.Administracao">
+              <MappingFragment StoreEntitySet="Administracao">
+                <ScalarProperty Name="IdAdministracao" ColumnName="IdAdministracao" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="senha" ColumnName="senha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Alunoes">
+            <EntityTypeMapping TypeName="s2aeiDBModel.Aluno">
+              <MappingFragment StoreEntitySet="Aluno">
+                <ScalarProperty Name="IdAluno" ColumnName="IdAluno" />
+                <ScalarProperty Name="emaila" ColumnName="emaila" />
+                <ScalarProperty Name="senha" ColumnName="senha" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="curso" ColumnName="curso" />
+                <ScalarProperty Name="periodo" ColumnName="periodo" />
+                <ScalarProperty Name="campus" ColumnName="campus" />
+                <ScalarProperty Name="situacao" ColumnName="situacao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Avaliadors">
+            <EntityTypeMapping TypeName="s2aeiDBModel.Avaliador">
+              <MappingFragment StoreEntitySet="Avaliador">
+                <ScalarProperty Name="IdAvaliador" ColumnName="IdAvaliador" />
+                <ScalarProperty Name="emailAval" ColumnName="emailAval" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="senha" ColumnName="senha" />
+                <ScalarProperty Name="areaAtuacao" ColumnName="areaAtuacao" />
+                <ScalarProperty Name="formacao" ColumnName="formacao" />
+                <ScalarProperty Name="situacao" ColumnName="situacao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ComentAlunoes">
+            <EntityTypeMapping TypeName="s2aeiDBModel.ComentAluno">
+              <MappingFragment StoreEntitySet="ComentAluno">
+                <ScalarProperty Name="IdComentAluno" ColumnName="IdComentAluno" />
+                <ScalarProperty Name="IdProjeto" ColumnName="IdProjeto" />
+                <ScalarProperty Name="IdBloco" ColumnName="IdBloco" />
+                <ScalarProperty Name="IdResposta" ColumnName="IdResposta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ComentProfessors">
+            <EntityTypeMapping TypeName="s2aeiDBModel.ComentProfessor">
+              <MappingFragment StoreEntitySet="ComentProfessor">
+                <ScalarProperty Name="IdComentProf" ColumnName="IdComentProf" />
+                <ScalarProperty Name="IdProjeto" ColumnName="IdProjeto" />
+                <ScalarProperty Name="IdBloco" ColumnName="IdBloco" />
+                <ScalarProperty Name="IdResposta" ColumnName="IdResposta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Professors">
+            <EntityTypeMapping TypeName="s2aeiDBModel.Professor">
+              <MappingFragment StoreEntitySet="Professor">
+                <ScalarProperty Name="IdProfessor" ColumnName="IdProfessor" />
+                <ScalarProperty Name="emailp" ColumnName="emailp" />
+                <ScalarProperty Name="senha" ColumnName="senha" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="disciplinaP" ColumnName="disciplinaP" />
+                <ScalarProperty Name="departamento" ColumnName="departamento" />
+                <ScalarProperty Name="situacao" ColumnName="situacao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projetoes">
+            <EntityTypeMapping TypeName="s2aeiDBModel.Projeto">
+              <MappingFragment StoreEntitySet="Projeto">
+                <ScalarProperty Name="IdProjeto" ColumnName="IdProjeto" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="idAlunoLider" ColumnName="idAlunoLider" />
+                <ScalarProperty Name="IdAvaliador" ColumnName="IdAvaliador" />
+                <ScalarProperty Name="situacao" ColumnName="situacao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Respostas">
+            <EntityTypeMapping TypeName="s2aeiDBModel.Resposta">
+              <MappingFragment StoreEntitySet="Resposta">
+                <ScalarProperty Name="IdResposta" ColumnName="IdResposta" />
+                <ScalarProperty Name="IdProjeto" ColumnName="IdProjeto" />
+                <ScalarProperty Name="IdBloco" ColumnName="IdBloco" />
+                <ScalarProperty Name="Resposta1" ColumnName="Resposta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="ProjetoAluno" TypeName="s2aeiDBModel.ProjetoAluno" StoreEntitySet="ProjetoAluno">
+            <EndProperty Name="Aluno">
+              <ScalarProperty Name="IdAluno" ColumnName="IdAluno" />
+            </EndProperty>
+            <EndProperty Name="Projeto">
+              <ScalarProperty Name="IdProjeto" ColumnName="IdProjeto" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="ProjetoProfessor" TypeName="s2aeiDBModel.ProjetoProfessor" StoreEntitySet="ProjetoProfessor">
+            <EndProperty Name="Professor">
+              <ScalarProperty Name="IdProfessor" ColumnName="IdProfessor" />
+            </EndProperty>
+            <EndProperty Name="Projeto">
+              <ScalarProperty Name="IdProjeto" ColumnName="IdProjeto" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

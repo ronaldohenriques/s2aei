@@ -62,11 +62,15 @@
     <RefactorLog Include="s2aei.refactorlog" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="AlunoMembo.sql" />
+    <Build Include="Aluno.sql" />
     <Build Include="Professor.sql" />
     <Build Include="Projeto.sql" />
     <Build Include="Avaliador.sql" />
-    <Build Include="Participando.sql" />
     <Build Include="Administracao.sql" />
+    <Build Include="ProjetoAluno.sql" />
+    <Build Include="ProjetoProfessor.sql" />
+    <Build Include="Resposta.sql" />
+    <Build Include="ComentProfessor.sql" />
+    <Build Include="ComentAluno.sql" />
   </ItemGroup>
 </Project>

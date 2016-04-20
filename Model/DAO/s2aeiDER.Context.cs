@@ -26,10 +26,12 @@ namespace Model.DAO
         }
     
         public virtual DbSet<Administracao> Administracaos { get; set; }
-        public virtual DbSet<AlunoMembo> AlunoMemboes { get; set; }
+        public virtual DbSet<Aluno> Alunoes { get; set; }
         public virtual DbSet<Avaliador> Avaliadors { get; set; }
-        public virtual DbSet<Participando> Participandoes { get; set; }
+        public virtual DbSet<ComentAluno> ComentAlunoes { get; set; }
+        public virtual DbSet<ComentProfessor> ComentProfessors { get; set; }
         public virtual DbSet<Professor> Professors { get; set; }
         public virtual DbSet<Projeto> Projetoes { get; set; }
+        public virtual DbSet<Resposta> Respostas { get; set; }
     }
 }

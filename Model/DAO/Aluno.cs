@@ -12,15 +12,16 @@ namespace Model.DAO
     using System;
     using System.Collections.Generic;
     
-    public partial class AlunoMembo
+    public partial class Aluno
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public AlunoMembo()
+        public Aluno()
         {
-            this.Participandoes = new HashSet<Participando>();
+            this.ComentAlunoes = new HashSet<ComentAluno>();
+            this.Projetoes = new HashSet<Projeto>();
         }
     
-        public System.Guid IdAlunoMembo { get; set; }
+        public System.Guid IdAluno { get; set; }
         public string emaila { get; set; }
         public string senha { get; set; }
         public string Nome { get; set; }
@@ -30,6 +31,8 @@ namespace Model.DAO
         public byte situacao { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Participando> Participandoes { get; set; }
+        public virtual ICollection<ComentAluno> ComentAlunoes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Projeto> Projetoes { get; set; }
     }
 }
