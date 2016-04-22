@@ -4,15 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b1bf147a63c84ce39757e7ab5456495a" Name="Diagram1" ZoomLevel="55">
-        <EntityTypeShape EntityType="s2aeiDBModel.Administracao" Width="1.5" PointX="8" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="s2aeiDBModel.Aluno" Width="1.5" PointX="2.25" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="s2aeiDBModel.Avaliador" Width="1.5" PointX="10.5" PointY="3.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="s2aeiDBModel.ComentAluno" Width="1.5" PointX="6.125" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="s2aeiDBModel.ComentProfessor" Width="1.5" PointX="5.125" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="s2aeiDBModel.Professor" Width="1.5" PointX="9.5" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="s2aeiDBModel.Projeto" Width="1.5" PointX="1.25" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="s2aeiDBModel.Resposta" Width="1.5" PointX="0.5" PointY="6.875" IsExpanded="true" />
+      <Diagram DiagramId="7df0e436425b4a848c39490ba1619be1" Name="Diagram1">
+        <EntityTypeShape EntityType="s2aeiDBModel.Administracao" Width="1.5" PointX="2" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="s2aeiDBModel.Aluno" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="s2aeiDBModel.Avaliador" Width="1.5" PointX="7" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="s2aeiDBModel.ComentAluno" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="s2aeiDBModel.ComentProfessor" Width="1.5" PointX="8.125" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="s2aeiDBModel.Professor" Width="1.5" PointX="10" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="s2aeiDBModel.Projeto" Width="1.5" PointX="6" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="s2aeiDBModel.Resposta" Width="1.5" PointX="5" PointY="1.375" IsExpanded="true" />
         <AssociationConnector Association="s2aeiDBModel.FK_ComentAluno_Alunor" ManuallyRouted="false" />
         <AssociationConnector Association="s2aeiDBModel.FK_Projeto_Avaliador" ManuallyRouted="false" />
         <AssociationConnector Association="s2aeiDBModel.FK_ComentAluno_Projeto" ManuallyRouted="false" />

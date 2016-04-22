@@ -10,16 +10,17 @@ using System.Windows.Forms;
 
 namespace Desk
 {
-    public partial class frmProfCad : Form
+    public partial class frmLogin : Form
     {
-        public frmProfCad()
+        public frmLogin()
         {
             InitializeComponent();
         }
 
-        private void btnCancela_Click(object sender, EventArgs e)
+        private void lblCliqueAqui_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Close();
+            frmCad frm = new frmCad();
+            frm.Show();
         }
     }
 }

@@ -53,25 +53,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmProfLogin.cs">
+    <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmProfLogin.Designer.cs">
-      <DependentUpon>frmProfLogin.cs</DependentUpon>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmProfCad.cs">
+    <Compile Include="frmCad.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmProfCad.Designer.cs">
-      <DependentUpon>frmProfCad.cs</DependentUpon>
+    <Compile Include="frmCad.Designer.cs">
+      <DependentUpon>frmCad.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmProfCad.resx">
-      <DependentUpon>frmProfCad.cs</DependentUpon>
+    <EmbeddedResource Include="frmCad.resx">
+      <DependentUpon>frmCad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmProfLogin.resx">
-      <DependentUpon>frmProfLogin.cs</DependentUpon>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

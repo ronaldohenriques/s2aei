@@ -1,6 +1,6 @@
 ﻿namespace Desk
 {
-    partial class frmProfCad
+    partial class frmCad
     {
         /// <summary>
         /// Required designer variable.
@@ -41,6 +41,8 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.btnSolicCad = new System.Windows.Forms.Button();
             this.btnCancela = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cmbCadastro = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -55,7 +57,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 39);
+            this.label2.Location = new System.Drawing.Point(17, 63);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 1;
@@ -63,7 +65,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(101, 39);
+            this.textBox1.Location = new System.Drawing.Point(105, 63);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(300, 20);
             this.textBox1.TabIndex = 2;
@@ -71,7 +73,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(29, 65);
+            this.label3.Location = new System.Drawing.Point(16, 89);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 3;
@@ -79,7 +81,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(101, 65);
+            this.textBox2.Location = new System.Drawing.Point(105, 89);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(300, 20);
             this.textBox2.TabIndex = 4;
@@ -87,7 +89,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(11, 92);
+            this.label4.Location = new System.Drawing.Point(15, 116);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(79, 13);
             this.label4.TabIndex = 5;
@@ -95,7 +97,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(101, 92);
+            this.textBox3.Location = new System.Drawing.Point(105, 116);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(300, 20);
             this.textBox3.TabIndex = 6;
@@ -103,7 +105,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 120);
+            this.label5.Location = new System.Drawing.Point(15, 144);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(74, 13);
             this.label5.TabIndex = 7;
@@ -111,7 +113,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(101, 120);
+            this.textBox4.Location = new System.Drawing.Point(105, 144);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(300, 20);
             this.textBox4.TabIndex = 8;
@@ -119,7 +121,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(29, 150);
+            this.label6.Location = new System.Drawing.Point(16, 174);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(39, 13);
             this.label6.TabIndex = 9;
@@ -127,7 +129,7 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(101, 150);
+            this.textBox5.Location = new System.Drawing.Point(105, 174);
             this.textBox5.MaxLength = 10;
             this.textBox5.Name = "textBox5";
             this.textBox5.PasswordChar = '*';
@@ -136,7 +138,7 @@
             // 
             // btnSolicCad
             // 
-            this.btnSolicCad.Location = new System.Drawing.Point(219, 150);
+            this.btnSolicCad.Location = new System.Drawing.Point(223, 174);
             this.btnSolicCad.Name = "btnSolicCad";
             this.btnSolicCad.Size = new System.Drawing.Size(96, 23);
             this.btnSolicCad.TabIndex = 11;
@@ -145,7 +147,7 @@
             // 
             // btnCancela
             // 
-            this.btnCancela.Location = new System.Drawing.Point(321, 150);
+            this.btnCancela.Location = new System.Drawing.Point(325, 174);
             this.btnCancela.Name = "btnCancela";
             this.btnCancela.Size = new System.Drawing.Size(75, 23);
             this.btnCancela.TabIndex = 12;
@@ -153,11 +155,33 @@
             this.btnCancela.UseVisualStyleBackColor = true;
             this.btnCancela.Click += new System.EventHandler(this.btnCancela_Click);
             // 
-            // frmProfCad
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(17, 43);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(33, 13);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Perfil:";
+            // 
+            // cmbCadastro
+            // 
+            this.cmbCadastro.FormattingEnabled = true;
+            this.cmbCadastro.Items.AddRange(new object[] {
+            "Avaliador",
+            "Professor"});
+            this.cmbCadastro.Location = new System.Drawing.Point(105, 35);
+            this.cmbCadastro.Name = "cmbCadastro";
+            this.cmbCadastro.Size = new System.Drawing.Size(121, 21);
+            this.cmbCadastro.TabIndex = 14;
+            // 
+            // frmCad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(446, 198);
+            this.ClientSize = new System.Drawing.Size(446, 268);
+            this.Controls.Add(this.cmbCadastro);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.btnCancela);
             this.Controls.Add(this.btnSolicCad);
             this.Controls.Add(this.textBox5);
@@ -171,7 +195,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "frmProfCad";
+            this.Name = "frmCad";
             this.Text = "Novo cadastro";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -193,5 +217,7 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Button btnSolicCad;
         private System.Windows.Forms.Button btnCancela;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cmbCadastro;
     }
 }

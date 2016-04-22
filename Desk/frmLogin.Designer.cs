@@ -1,6 +1,6 @@
 ﻿namespace Desk
 {
-    partial class frmProfLogin
+    partial class frmLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -37,6 +37,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.lblCliqueAqui = new System.Windows.Forms.LinkLabel();
+            this.cmbLogin = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -53,18 +55,18 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(15, 42);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 13);
+            this.label2.Size = new System.Drawing.Size(36, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "login";
+            this.label2.Text = "Login:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(15, 77);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 13);
+            this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 2;
-            this.label3.Text = "senha";
+            this.label3.Text = "Senha:";
             // 
             // textBox1
             // 
@@ -103,7 +105,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(63, 140);
+            this.label4.Location = new System.Drawing.Point(60, 154);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(188, 13);
             this.label4.TabIndex = 7;
@@ -112,7 +114,7 @@
             // lblCliqueAqui
             // 
             this.lblCliqueAqui.AutoSize = true;
-            this.lblCliqueAqui.Location = new System.Drawing.Point(258, 140);
+            this.lblCliqueAqui.Location = new System.Drawing.Point(254, 154);
             this.lblCliqueAqui.Name = "lblCliqueAqui";
             this.lblCliqueAqui.Size = new System.Drawing.Size(62, 13);
             this.lblCliqueAqui.TabIndex = 8;
@@ -120,11 +122,33 @@
             this.lblCliqueAqui.Text = "Clique aqui!";
             this.lblCliqueAqui.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblCliqueAqui_LinkClicked);
             // 
-            // frmProfLogin
+            // cmbLogin
+            // 
+            this.cmbLogin.FormattingEnabled = true;
+            this.cmbLogin.Items.AddRange(new object[] {
+            "Avaliador",
+            "Professor"});
+            this.cmbLogin.Location = new System.Drawing.Point(63, 106);
+            this.cmbLogin.Name = "cmbLogin";
+            this.cmbLogin.Size = new System.Drawing.Size(121, 21);
+            this.cmbLogin.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(18, 109);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(33, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Perfil:";
+            // 
+            // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(638, 262);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.cmbLogin);
             this.Controls.Add(this.lblCliqueAqui);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button2);
@@ -134,8 +158,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "frmProfLogin";
-            this.Text = "Form1";
+            this.Name = "frmLogin";
+            this.Text = "Entrar no Sistema";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,5 +176,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.LinkLabel lblCliqueAqui;
+        private System.Windows.Forms.ComboBox cmbLogin;
+        private System.Windows.Forms.Label label5;
     }
 }
