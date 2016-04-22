@@ -34,7 +34,7 @@
             this.txtLogin = new System.Windows.Forms.TextBox();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.btnLoginOK = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.lblCredenciais = new System.Windows.Forms.Label();
             this.lblCliqueAqui = new System.Windows.Forms.LinkLabel();
             this.cmbLogin = new System.Windows.Forms.ComboBox();
@@ -86,7 +86,7 @@
             // 
             // btnLoginOK
             // 
-            this.btnLoginOK.Location = new System.Drawing.Point(182, 77);
+            this.btnLoginOK.Location = new System.Drawing.Point(209, 109);
             this.btnLoginOK.Name = "btnLoginOK";
             this.btnLoginOK.Size = new System.Drawing.Size(75, 23);
             this.btnLoginOK.TabIndex = 5;
@@ -94,15 +94,15 @@
             this.btnLoginOK.UseVisualStyleBackColor = true;
             this.btnLoginOK.Click += new System.EventHandler(this.btnLoginOK_Click);
             // 
-            // button2
+            // btnCancelar
             // 
-            this.button2.Location = new System.Drawing.Point(279, 77);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnCancelar.Location = new System.Drawing.Point(301, 109);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 6;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // lblCredenciais
             // 
@@ -154,7 +154,7 @@
             this.Controls.Add(this.cmbLogin);
             this.Controls.Add(this.lblCliqueAqui);
             this.Controls.Add(this.lblCredenciais);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnLoginOK);
             this.Controls.Add(this.txtSenha);
             this.Controls.Add(this.txtLogin);
@@ -176,7 +176,7 @@
         private System.Windows.Forms.TextBox txtLogin;
         private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.Button btnLoginOK;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label lblCredenciais;
         private System.Windows.Forms.LinkLabel lblCliqueAqui;
         private System.Windows.Forms.ComboBox cmbLogin;
