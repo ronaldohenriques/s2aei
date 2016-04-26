@@ -90,7 +90,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>s2aeiDER.edmx</DependentUpon>
     </Compile>
+    <Compile Include="PN\pnAluno.cs" />
     <Compile Include="PN\pnLogin.cs" />
+    <Compile Include="PN\pnProfessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

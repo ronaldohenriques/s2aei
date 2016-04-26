@@ -73,6 +73,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAtivacoes.resx">
+      <DependentUpon>frmAtivacoes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCad.resx">
       <DependentUpon>frmCad.cs</DependentUpon>
     </EmbeddedResource>

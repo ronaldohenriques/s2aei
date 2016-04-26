@@ -36,7 +36,7 @@ namespace Desk
                 {
                     String strLogin = this.txtLogin.Text;
                     String strSenha = this.txtSenha.Text;
-                    if (pnLogin.Valida(strLogin) && pnLogin.Valida(strSenha))
+                    if (pnLogin.Valida(strLogin, strSenha))
                     {
                         frmAtivacoes frm = new frmAtivacoes();
                         frm.Show();
