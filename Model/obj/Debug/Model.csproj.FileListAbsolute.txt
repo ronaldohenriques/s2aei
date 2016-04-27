@@ -21,3 +21,10 @@ D:\Dropbox\VisualStudio2013Projects\s2aei\Model\bin\Debug\EntityFramework.SqlSer
 D:\Dropbox\VisualStudio2013Projects\s2aei\Model\obj\Debug\Model.dll
 D:\Dropbox\VisualStudio2013Projects\s2aei\Model\obj\Debug\Model.pdb
 D:\Dropbox\VisualStudio2013Projects\s2aei\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\Users\Nina\Dropbox\UTFPR\2016.1\Desenvolvimento\s2aei\Model\bin\Debug\Model.dll.config
+C:\Users\Nina\Dropbox\UTFPR\2016.1\Desenvolvimento\s2aei\Model\bin\Debug\Model.dll
+C:\Users\Nina\Dropbox\UTFPR\2016.1\Desenvolvimento\s2aei\Model\bin\Debug\Model.pdb
+C:\Users\Nina\Dropbox\UTFPR\2016.1\Desenvolvimento\s2aei\Model\bin\Debug\EntityFramework.dll
+C:\Users\Nina\Dropbox\UTFPR\2016.1\Desenvolvimento\s2aei\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nina\Dropbox\UTFPR\2016.1\Desenvolvimento\s2aei\Model\bin\Debug\EntityFramework.xml
+C:\Users\Nina\Dropbox\UTFPR\2016.1\Desenvolvimento\s2aei\Model\bin\Debug\EntityFramework.SqlServer.xml
