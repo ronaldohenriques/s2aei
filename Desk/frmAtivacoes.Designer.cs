@@ -160,6 +160,7 @@
             this.btnProfPrev.TabIndex = 12;
             this.btnProfPrev.Text = "<";
             this.btnProfPrev.UseVisualStyleBackColor = true;
+            this.btnProfPrev.Click += new System.EventHandler(this.btnProfPrev_Click);
             // 
             // btnProfNext
             // 
@@ -169,6 +170,7 @@
             this.btnProfNext.TabIndex = 13;
             this.btnProfNext.Text = ">";
             this.btnProfNext.UseVisualStyleBackColor = true;
+            this.btnProfNext.Click += new System.EventHandler(this.btnProfNext_Click);
             // 
             // btnProfLast
             // 
@@ -178,6 +180,7 @@
             this.btnProfLast.TabIndex = 14;
             this.btnProfLast.Text = ">|";
             this.btnProfLast.UseVisualStyleBackColor = true;
+            this.btnProfLast.Click += new System.EventHandler(this.btnProfLast_Click);
             // 
             // frmAtivacoes
             // 

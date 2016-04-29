@@ -27,5 +27,23 @@ namespace Desk
             pa = pnProfessor.Primeiro();
             txtProfNome.Text = pa.nome;
         }
+
+        private void btnProfNext_Click(object sender, EventArgs e)
+        {
+            pa = pnProfessor.Proximo();
+            txtProfNome.Text = pa.nome;
+        }
+
+        private void btnProfLast_Click(object sender, EventArgs e)
+        {
+            pa = pnProfessor.Ultimo();
+            txtProfNome.Text = pa.nome;
+        }
+
+        private void btnProfPrev_Click(object sender, EventArgs e)
+        {
+            pa = pnProfessor.Anterior();
+            txtProfNome.Text = pa.nome;
+        }
     }
 }
