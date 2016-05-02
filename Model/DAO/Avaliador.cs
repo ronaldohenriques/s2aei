@@ -26,7 +26,7 @@ namespace Model.DAO
         public string senha { get; set; }
         public string areaAtuacao { get; set; }
         public string formacao { get; set; }
-        public Nullable<byte> situacao { get; set; }
+        public byte situacao { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Projeto> Projetoes { get; set; }

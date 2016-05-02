@@ -11,14 +11,14 @@ namespace Model.PN
     {
         static int posicao;
 
-        public static bool Inserir(Professor p)
+        public static bool Inserir(Professor pf)
         {
             try
             {
                 s2aeiDBEntities db = new s2aeiDBEntities();
                 Guid guid = Guid.NewGuid();
-                p.IdProfessor = guid;
-                db.Professors.Add(p);
+                pf.IdProfessor = guid;
+                db.Professors.Add(pf);
                 db.SaveChanges();
 
                 return true;
@@ -34,11 +34,11 @@ namespace Model.PN
             try
             {
                 s2aeiDBEntities db = new s2aeiDBEntities();
-                Professor pa = new Professor();
-                pa = db.Professors.First();
+                Professor pf = new Professor();
+                pf = db.Professors.First();
                 posicao = 0;
 
-                return pa;
+                return pf;
             }
             catch (Exception ex)
             {
@@ -52,19 +52,19 @@ namespace Model.PN
             try
             {
                 s2aeiDBEntities db = new s2aeiDBEntities();
-                Professor pa = new Professor();
+                Professor pf = new Professor();
                 List<Professor> listProf = db.Professors.ToList();
 
                 if (posicao > 0)
                 {
                     posicao--;
-                    pa = listProf.ElementAt(posicao);
+                    pf = listProf.ElementAt(posicao);
                 }
                 else
                 {
-                    pa = listProf.ElementAt(0);
+                    pf = listProf.ElementAt(0);
                 }
-                return pa;
+                return pf;
             }
             catch (Exception ex)
             {
@@ -78,19 +78,19 @@ namespace Model.PN
             try
             {
                 s2aeiDBEntities db = new s2aeiDBEntities();
-                Professor pa = new Professor();
+                Professor pf = new Professor();
                 List<Professor> listProf = db.Professors.ToList();
 
                 if (posicao >= 0 && posicao < (listProf.Count() - 1))
                 {
                     posicao++;
-                    pa = listProf.ElementAt(posicao);
+                    pf = listProf.ElementAt(posicao);
                 }
                 else
                 {
-                    pa = listProf.ElementAt(listProf.Count() - 1);
+                    pf = listProf.ElementAt(listProf.Count() - 1);
                 }
-                return pa;
+                return pf;
             }
             catch (Exception ex)
             {
@@ -104,12 +104,12 @@ namespace Model.PN
             try
             {
                 s2aeiDBEntities db = new s2aeiDBEntities();
-                Professor pa = new Professor();
+                Professor pf = new Professor();
                 List<Professor> listProf = db.Professors.ToList();
                 posicao = listProf.Count() - 1;
-                pa = listProf.ElementAt(posicao);
+                pf = listProf.ElementAt(posicao);
 
-                return pa;
+                return pf;
             }
             catch (Exception ex)
             {
@@ -122,11 +122,11 @@ namespace Model.PN
             try
             {
                 s2aeiDBEntities db = new s2aeiDBEntities();
-                Professor pa = new Professor();
+                Professor pf = new Professor();
 
 
-                pa = db.Professors.Find(p.IdProfessor);
-                pa.situacao = status;
+                pf = db.Professors.Find(p.IdProfessor);
+                pf.situacao = status;
 
                 db.SaveChanges();
                 return true;
@@ -136,6 +136,5 @@ namespace Model.PN
                 throw new Exception(ex.Message);
             }
         }
-
     }
 }

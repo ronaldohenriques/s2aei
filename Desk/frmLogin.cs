@@ -51,5 +51,10 @@ namespace Desk
         {
             this.Close();
         }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            this.cmbLogin.SelectedIndex = 1;
+       }
     }
 }
