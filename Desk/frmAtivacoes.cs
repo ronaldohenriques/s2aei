@@ -16,6 +16,16 @@ namespace Desk
     {
 
         private Professor pa = new Professor();
+        /*
+         0 - Cadastro inativo ou solicitado
+        1 - Cadastro ativo ou aceito
+        2 - Cadastro recusado ou excluído
+         */
+
+        private const byte INATIVO = 0;
+        private const byte ATIVO = 1;
+        private const byte RECUSADO = 2;
+
 
         public frmAtivacoes()
         {
@@ -44,6 +54,36 @@ namespace Desk
         {
             pa = pnProfessor.Anterior();
             txtProfNome.Text = pa.nome;
+        }
+
+        private void frmAtivacoes_Load(object sender, EventArgs e)
+        {
+            pa = pnProfessor.Ultimo();
+            txtProfNome.Text = pa.nome;
+        }
+
+        private void rdbInativo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!pnProfessor.SetSituacao(pa, INATIVO))
+            {
+                MessageBox.Show("Erro ao mudar situação!");
+            }
+        }
+
+        private void rdbAtivo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!pnProfessor.SetSituacao(pa, ATIVO))
+            {
+                MessageBox.Show("Erro ao mudar situação!");
+            }
+        }
+
+        private void rdbRecusado_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!pnProfessor.SetSituacao(pa, RECUSADO))
+            {
+                MessageBox.Show("Erro ao mudar situação!");
+            }
         }
     }
 }

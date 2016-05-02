@@ -7,27 +7,25 @@ using System.Threading.Tasks;
 
 namespace Model.PN
 {
-
-    public static class pnLogin
+    public static class pnAvaliador
     {
-
-        public static bool Valida(String strLogin, String strSenha)
+        public static bool Inserir(Avaliador a)
         {
             try
             {
                 s2aeiDBEntities db = new s2aeiDBEntities();
-                Administracao pa = new Administracao();
-                pa = db.Administracaos.Where(m => m.login == strLogin).FirstOrDefault();
-                if (pa.senha == strSenha)
-                {
-                    return true;
-                }
-                return false;
+                Guid guid = Guid.NewGuid();
+                a.IdAvaliador = guid;
+                db.Avaliadors.Add(a);
+                db.SaveChanges();
+
+                return true;
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
         }
+
     }
 }

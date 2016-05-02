@@ -55,10 +55,14 @@ namespace Model.PN
                 Professor pa = new Professor();
                 List<Professor> listProf = db.Professors.ToList();
 
-                if (posicao >= 0)
+                if (posicao > 0)
                 {
                     posicao--;
                     pa = listProf.ElementAt(posicao);
+                }
+                else
+                {
+                    pa = listProf.ElementAt(0);
                 }
                 return pa;
             }
@@ -82,6 +86,10 @@ namespace Model.PN
                     posicao++;
                     pa = listProf.ElementAt(posicao);
                 }
+                else
+                {
+                    pa = listProf.ElementAt(listProf.Count() - 1);
+                }
                 return pa;
             }
             catch (Exception ex)
@@ -102,6 +110,26 @@ namespace Model.PN
                 pa = listProf.ElementAt(posicao);
 
                 return pa;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public static bool SetSituacao(Professor p, byte status)
+        {
+            try
+            {
+                s2aeiDBEntities db = new s2aeiDBEntities();
+                Professor pa = new Professor();
+
+
+                pa = db.Professors.Find(p.IdProfessor);
+                pa.situacao = status;
+
+                db.SaveChanges();
+                return true;
             }
             catch (Exception ex)
             {

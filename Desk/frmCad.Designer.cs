@@ -43,6 +43,10 @@
             this.btnCancela = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbCadastro = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtArea = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtFormacao = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -121,15 +125,15 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 174);
+            this.label6.Location = new System.Drawing.Point(16, 224);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(39, 13);
+            this.label6.Size = new System.Drawing.Size(41, 13);
             this.label6.TabIndex = 9;
-            this.label6.Text = "senha:";
+            this.label6.Text = "Senha:";
             // 
             // txtSenha
             // 
-            this.txtSenha.Location = new System.Drawing.Point(105, 174);
+            this.txtSenha.Location = new System.Drawing.Point(105, 226);
             this.txtSenha.MaxLength = 10;
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.PasswordChar = '*';
@@ -138,7 +142,7 @@
             // 
             // btnSolicCad
             // 
-            this.btnSolicCad.Location = new System.Drawing.Point(223, 174);
+            this.btnSolicCad.Location = new System.Drawing.Point(228, 224);
             this.btnSolicCad.Name = "btnSolicCad";
             this.btnSolicCad.Size = new System.Drawing.Size(96, 23);
             this.btnSolicCad.TabIndex = 11;
@@ -148,7 +152,7 @@
             // 
             // btnCancela
             // 
-            this.btnCancela.Location = new System.Drawing.Point(325, 174);
+            this.btnCancela.Location = new System.Drawing.Point(330, 224);
             this.btnCancela.Name = "btnCancela";
             this.btnCancela.Size = new System.Drawing.Size(75, 23);
             this.btnCancela.TabIndex = 12;
@@ -175,12 +179,49 @@
             this.cmbCadastro.Name = "cmbCadastro";
             this.cmbCadastro.Size = new System.Drawing.Size(121, 21);
             this.cmbCadastro.TabIndex = 14;
+            this.cmbCadastro.SelectedIndexChanged += new System.EventHandler(this.cmbCadastro_SelectedIndexChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(17, 173);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(29, 13);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Área";
+            // 
+            // txtArea
+            // 
+            this.txtArea.Location = new System.Drawing.Point(105, 170);
+            this.txtArea.Name = "txtArea";
+            this.txtArea.Size = new System.Drawing.Size(300, 20);
+            this.txtArea.TabIndex = 16;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(17, 196);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(57, 13);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "Formação:";
+            // 
+            // txtFormacao
+            // 
+            this.txtFormacao.Location = new System.Drawing.Point(105, 196);
+            this.txtFormacao.Name = "txtFormacao";
+            this.txtFormacao.Size = new System.Drawing.Size(300, 20);
+            this.txtFormacao.TabIndex = 18;
             // 
             // frmCad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(446, 268);
+            this.ClientSize = new System.Drawing.Size(446, 252);
+            this.Controls.Add(this.txtFormacao);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.txtArea);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.cmbCadastro);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnCancela);
@@ -198,6 +239,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmCad";
             this.Text = "Novo cadastro";
+            this.Load += new System.EventHandler(this.frmCad_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,5 +262,9 @@
         private System.Windows.Forms.Button btnCancela;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cmbCadastro;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtArea;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtFormacao;
     }
 }

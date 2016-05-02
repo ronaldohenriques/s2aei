@@ -31,12 +31,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtProfNome = new System.Windows.Forms.TextBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.btnProfAtivar = new System.Windows.Forms.Button();
-            this.btnProfDesat = new System.Windows.Forms.Button();
-            this.btnProfRec = new System.Windows.Forms.Button();
+            this.rdbInativo = new System.Windows.Forms.RadioButton();
+            this.rdbAtivo = new System.Windows.Forms.RadioButton();
+            this.rdbRecusado = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnProfFirst = new System.Windows.Forms.Button();
             this.btnProfPrev = new System.Windows.Forms.Button();
@@ -70,72 +67,48 @@
             this.txtProfNome.Size = new System.Drawing.Size(220, 20);
             this.txtProfNome.TabIndex = 3;
             // 
-            // radioButton1
+            // rdbInativo
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(0, 19);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(57, 17);
-            this.radioButton1.TabIndex = 4;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Inativo";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdbInativo.AutoSize = true;
+            this.rdbInativo.Location = new System.Drawing.Point(0, 19);
+            this.rdbInativo.Name = "rdbInativo";
+            this.rdbInativo.Size = new System.Drawing.Size(57, 17);
+            this.rdbInativo.TabIndex = 4;
+            this.rdbInativo.TabStop = true;
+            this.rdbInativo.Text = "Inativo";
+            this.rdbInativo.UseVisualStyleBackColor = true;
+            this.rdbInativo.CheckedChanged += new System.EventHandler(this.rdbInativo_CheckedChanged);
             // 
-            // radioButton2
+            // rdbAtivo
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(72, 19);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(49, 17);
-            this.radioButton2.TabIndex = 5;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Ativo";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rdbAtivo.AutoSize = true;
+            this.rdbAtivo.Location = new System.Drawing.Point(72, 19);
+            this.rdbAtivo.Name = "rdbAtivo";
+            this.rdbAtivo.Size = new System.Drawing.Size(49, 17);
+            this.rdbAtivo.TabIndex = 5;
+            this.rdbAtivo.TabStop = true;
+            this.rdbAtivo.Text = "Ativo";
+            this.rdbAtivo.UseVisualStyleBackColor = true;
+            this.rdbAtivo.CheckedChanged += new System.EventHandler(this.rdbAtivo_CheckedChanged);
             // 
-            // radioButton3
+            // rdbRecusado
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(138, 19);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(74, 17);
-            this.radioButton3.TabIndex = 6;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Recusado";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // btnProfAtivar
-            // 
-            this.btnProfAtivar.Location = new System.Drawing.Point(297, 9);
-            this.btnProfAtivar.Name = "btnProfAtivar";
-            this.btnProfAtivar.Size = new System.Drawing.Size(75, 23);
-            this.btnProfAtivar.TabIndex = 7;
-            this.btnProfAtivar.Text = "Ativar";
-            this.btnProfAtivar.UseVisualStyleBackColor = true;
-            // 
-            // btnProfDesat
-            // 
-            this.btnProfDesat.Location = new System.Drawing.Point(297, 33);
-            this.btnProfDesat.Name = "btnProfDesat";
-            this.btnProfDesat.Size = new System.Drawing.Size(75, 23);
-            this.btnProfDesat.TabIndex = 8;
-            this.btnProfDesat.Text = "Desativar";
-            this.btnProfDesat.UseVisualStyleBackColor = true;
-            // 
-            // btnProfRec
-            // 
-            this.btnProfRec.Location = new System.Drawing.Point(297, 58);
-            this.btnProfRec.Name = "btnProfRec";
-            this.btnProfRec.Size = new System.Drawing.Size(75, 23);
-            this.btnProfRec.TabIndex = 9;
-            this.btnProfRec.Text = "Recusar";
-            this.btnProfRec.UseVisualStyleBackColor = true;
+            this.rdbRecusado.AutoSize = true;
+            this.rdbRecusado.Location = new System.Drawing.Point(138, 19);
+            this.rdbRecusado.Name = "rdbRecusado";
+            this.rdbRecusado.Size = new System.Drawing.Size(74, 17);
+            this.rdbRecusado.TabIndex = 6;
+            this.rdbRecusado.TabStop = true;
+            this.rdbRecusado.Text = "Recusado";
+            this.rdbRecusado.UseVisualStyleBackColor = true;
+            this.rdbRecusado.CheckedChanged += new System.EventHandler(this.rdbRecusado_CheckedChanged);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Controls.Add(this.radioButton3);
-            this.groupBox1.Location = new System.Drawing.Point(15, 61);
+            this.groupBox1.Controls.Add(this.rdbAtivo);
+            this.groupBox1.Controls.Add(this.rdbInativo);
+            this.groupBox1.Controls.Add(this.rdbRecusado);
+            this.groupBox1.Location = new System.Drawing.Point(62, 61);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(229, 43);
             this.groupBox1.TabIndex = 10;
@@ -192,14 +165,12 @@
             this.Controls.Add(this.btnProfPrev);
             this.Controls.Add(this.btnProfFirst);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnProfRec);
-            this.Controls.Add(this.btnProfDesat);
-            this.Controls.Add(this.btnProfAtivar);
             this.Controls.Add(this.txtProfNome);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmAtivacoes";
             this.Text = "Ativacoes";
+            this.Load += new System.EventHandler(this.frmAtivacoes_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -212,12 +183,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtProfNome;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.Button btnProfAtivar;
-        private System.Windows.Forms.Button btnProfDesat;
-        private System.Windows.Forms.Button btnProfRec;
+        private System.Windows.Forms.RadioButton rdbInativo;
+        private System.Windows.Forms.RadioButton rdbAtivo;
+        private System.Windows.Forms.RadioButton rdbRecusado;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnProfFirst;
         private System.Windows.Forms.Button btnProfPrev;
