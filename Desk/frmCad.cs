@@ -20,9 +20,9 @@ namespace Desk
         2 - Cadastro recusado ou excluído
          */
 
-        private const int INATIVO = 0;
-        private const int ATIVO = 1;
-        private const int RECUSADO = 2;
+        private const byte INATIVO = 0;
+        private const byte ATIVO = 1;
+        private const byte RECUSADO = 2;
 
         public frmCad()
         {
@@ -36,7 +36,7 @@ namespace Desk
 
         private void btnSolicCad_Click(object sender, EventArgs e)
         {
-            if (cmbCadastro.SelectedItem.ToString() == "Professor")
+            if (cmbCadastro.SelectedItem == "Professor")
             {
                 Professor p = new Professor();
 
@@ -52,6 +52,47 @@ namespace Desk
                     MessageBox.Show("Erro ao cadastrar professor!");
                 }
                 this.Close();
+            }
+
+            if (cmbCadastro.SelectedItem == "Avaliador")
+            {
+                Avaliador a = new Avaliador();
+
+                a.nome = this.txtNome.Text;
+                a.emailAval = this.txtEmail.Text;
+                a.areaAtuacao = this.txtArea.Text;
+                a.formacao = this.txtFormacao.Text;
+                a.senha = this.txtSenha.Text;
+                a.situacao = INATIVO;
+
+                if (!pnAvaliador.Inserir(a))
+                {
+                    MessageBox.Show("Erro ao cadastrar avaliador!");
+                }
+                this.Close();
+            }
+        }
+
+        private void frmCad_Load(object sender, EventArgs e)
+        {
+            this.cmbCadastro.SelectedIndex = 0;
+        }
+
+        private void cmbCadastro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.cmbCadastro.SelectedItem == "Professor")
+            {
+                this.txtArea.Enabled = false;
+                this.txtFormacao.Enabled = false;
+                this.txtDiscP.Enabled = true;
+                this.txtDepto.Enabled = true;
+            }
+            if (this.cmbCadastro.SelectedItem == "Avaliador")
+            {
+                this.txtArea.Enabled = true;
+                this.txtFormacao.Enabled = true;
+                this.txtDiscP.Enabled = false;
+                this.txtDepto.Enabled = false;
             }
         }
     }
